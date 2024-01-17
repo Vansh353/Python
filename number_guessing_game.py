@@ -31,18 +31,18 @@ while flag:
                 elif n>random_number:
                     print("Try again! Too High ")
                     
-                    guess=guess+1
-                    Guess_counter=Guess_counter+1
+                    guess+=1
+                    Guess_counter+=1
                     
 
                 elif n<random_number:
                     print("Try again! Too Low")
-                    guess=guess+1
-                    Guess_counter=Guess_counter+1
+                    guess+=1
+                    Guess_counter+=1
                 
 
                 elif n==random_number:
-                    Guess_counter=Guess_counter+1
+                    Guess_counter+=1
                     print(f'Congrats You Guess the right Number  with {Guess_counter} guesses')
 
             
