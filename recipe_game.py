@@ -1,8 +1,6 @@
 recipe_item = []
 
 def add_to_recipe(recipe_id, recipe_name, recipe_type, recipe_desc):
-    global recipe_item
-    
     new_recipe = {
         "id": recipe_id,
         "name": recipe_name,
@@ -13,8 +11,6 @@ def add_to_recipe(recipe_id, recipe_name, recipe_type, recipe_desc):
     print("Recipe Added Succesfully")
     
 def update_recipe(recipe_id):
-    global recipe_item
-    
     for recipe in recipe_item:
         if recipe['id'] == recipe_id:
             recipe_name=input("Enter New Name: ")
@@ -27,10 +23,12 @@ def update_recipe(recipe_id):
             recipe['name'] = recipe_name
             recipe['type'] = recipe_type
             recipe['desc'] = recipe_desc
-            print(f"Recipe with ID {update_id} updated successfully")
+            print(f"Recipe with ID {recipe_id} updated successfully")
             return
         else:
-            print(f"Recipe with ID {update_id} not found")
+            print(f"Recipe with ID {recipe_id} not found")
+            
+
 temp=1
 while temp: 
         
@@ -56,7 +54,7 @@ while temp:
                 # For Inputting Desc
                 recipe_function_desc = input("Enter the Recipe Description \n")
                 
-                add_to_recipe(recipe_function_id, recipe_function_name, recipe_function_type, recipe_function_desc)
+                add_to_recipe(recipe_function_id, recipe_function_name,recipe_function_type, recipe_function_desc)
             
             elif recipe_functions ==2:
                 
@@ -66,8 +64,7 @@ while temp:
              
                 if len(recipe_item)==0:
                     print(f"Recipe with ID {update_id} not found")
-                else:
-                    print(f"Recipe with ID {update_id} not found")
+            
                        
                 update_recipe(update_id)
                 
