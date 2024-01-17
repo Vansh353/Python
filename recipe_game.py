@@ -26,14 +26,14 @@ def update_recipe(recipe_id, recipe_name, recipe_type, recipe_desc):
 temp=1
 while temp: 
         
-    temp= int(input(" 0) Exit\n 1) Start \n"))  
+    temp= int(input(" \n 0) Exit \n 1) Start \n Enter Value: "))  
     recipe_no = 1
     flag=1
-    print("Welcome to Recipe App")
+    print("Welcome to Recipe App\n")
     if temp==1:
 
         while flag:
-            recipe_functions = int(input("Recipe App Functions \n 1) Add Recipe \n 2) Update Recipe \n 3) Delete Recipe \n 4) View Recipe \n 5) Exit \n "))
+            recipe_functions = int(input("\n Recipe App Functions \n\n 1)Add Recipe \n\n 2) Update Recipe \n\n 3) Delete Recipe \n\n 4) View Recipe \n\n 5) Exit \n Enter Value:"))
 
             if recipe_functions == 1:
                 recipe_function_id = recipe_no
