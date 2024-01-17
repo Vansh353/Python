@@ -84,7 +84,7 @@ while temp:
                 for recipe in recipe_item:
                     if delete_id==recipe['id']:
                         recipe_item.remove(recipe)
-                        print(f"Recipe with ID {delete_id} updated successfully")
+                        print(f"Recipe with ID {delete_id} deleted successfully")
                     else:
                        
                         print(f"Recipe with ID {delete_id} not found")
