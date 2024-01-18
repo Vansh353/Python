@@ -12,7 +12,11 @@ def add_to_recipe(recipe_id, recipe_name, recipe_type, recipe_desc):
     
 def update_recipe(recipe_id):
     for recipe in recipe_item:
-        if recipe['id'] == recipe_id:
+        if recipe['id'] != recipe_id:
+            print(f"Recipe with ID {recipe_id} not found")
+            
+        
+        elif recipe['id'] == recipe_id:
             recipe_name=input("Enter New Name: ")
     
             
@@ -25,8 +29,8 @@ def update_recipe(recipe_id):
             recipe['desc'] = recipe_desc
             print(f"Recipe with ID {recipe_id} updated successfully")
             return
-        else:
-            print(f"Recipe with ID {recipe_id} not found")
+        
+            
             
 
 temp=1
@@ -61,7 +65,7 @@ while temp:
                 print("Enter the id you want to update: ")
                 update_id=int(input())
                 
-             
+                
                 if len(recipe_item)==0:
                     print(f"Recipe with ID {update_id} not found")
             
@@ -75,16 +79,29 @@ while temp:
                 delete_id=int(input())
               
                 if len(recipe_item)==0:
-                     print(f"Recipe with ID {delete_id} not found")
-                
+                    print(f"Recipe with ID {delete_id} not found")
+                # elif delete_id not in recipe_item:
+                #     print("ID Not Found")
                     
-                for recipe in recipe_item:
-                    if delete_id==recipe['id']:
-                        recipe_item.remove(recipe)
-                        print(f"Recipe with ID {delete_id} deleted successfully")
-                    else:
-                       
-                        print(f"Recipe with ID {delete_id} not found")
+                else:   
+                    flag=0                 
+                    for recipe in recipe_item:
+                        if delete_id==recipe['id']:
+                            flag=1
+                            recipe_item.remove(recipe)
+                            print(f"Recipe with ID {delete_id} deleted successfully")
+                        
+                            #update for loop
+                            for recipe in recipe_item:
+                                recipe['id']=recipe_no1
+                                recipe_no1+=1
+                            
+                            break
+                            
+                    if flag!=1:
+                        print("ID Not found!")
+              
+                    
                 
                 
                 
@@ -93,8 +110,7 @@ while temp:
                 print("All Recipes:")
                 
                 for recipe in recipe_item:
-                    recipe['id']=recipe_no1
-                    recipe_no1+=1
+                  
                 
                     print(f"ID: {recipe['id']}, Name: {recipe['name']}, Type: {recipe['type']}, Desc: {recipe['desc']}")
             
